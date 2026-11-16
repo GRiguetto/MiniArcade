@@ -161,3 +161,18 @@ h1 {
     border-color: var(--ink);
 }
 
+/* tela do jogo */
+
+#jogo {
+    width: 100%;
+    max-width: 460px;
+}
+
+.topo{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    margin-bottom: 12px;
+    gap: 8px;
+}
+
