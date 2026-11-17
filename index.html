@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini Arcade</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mini Arcade</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>MINI ARCADE</h1>
-    <p class="sub">ESCOLHA SEU JOGO</p>
 
-    <main id="menu">
-        <div clas="grade" id="grade"></div>
-        <p class="sub piscar" style="margin-top:28px">PRECIONE UM CARTUCHO</p>
-    </main>
+<h1>MINI ARCADE</h1>
+<p class="sub">ESCOLHA SEU JOGO</p>
 
-    <!-- telas dos jogos -->
-    <section id="jogo" hidden>
-        <div class="topo">
-            <button class="btn" id="voltar">◀ MENU</button>
-            <span id="titulo-jogo"></span>
-        </div>
-        <div id="palco"></div>
-    </section>
+<!-- CARTUCHOS -->
+<main id="menu">
+  <div class="grade" id="grade"></div>
+  <p class="sub piscar" style="margin-top:28px">PRESSIONE UM CARTUCHO</p>
+</main>
 
-    <footer>© 2026 MINI ARCADE · GABRIEL FERNANDES RIGUETTO</footer>
-    
-    <script src="js/sound.js"></script> <!--para os sons (criar) -->
-    <script src="js/games/cobrinha.js"></script> <!--js dos jogos (criar)-->
-    <script src="js/main.js"></script>
+<!-- TELA JOGO -->
+<section id="jogo" hidden>
+  <div class="topo">
+    <button class="btn" id="voltar">◀ MENU</button>
+    <span id="titulo-jogo"></span>
+  </div>
+  <div id="palco"></div>
+</section>
+
+<footer>© 2026 MINI ARCADE · GABRIEL FERNANDES RIGUETTO</footer>
+
+<!-- SCRIPT -->
+<script src="js/sound.js"></script>
+<script src="js/games/cobrinha.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

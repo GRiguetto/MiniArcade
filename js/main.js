@@ -9,6 +9,9 @@ const JOGOS = [
     // adicionar novos cartuchos de jogos aqui
 ]
 
+const $ = (sel) => document.querySelector(sel);
+let limpar = null; 
+
 function montarMenu(){
     const grade = $("#grade");
     JOGOS.forEach((j) => {
