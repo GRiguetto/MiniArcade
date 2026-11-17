@@ -43,6 +43,27 @@ function rotear(){
 $("#voltar").addEventListener("click", () => {location.hash = "";});
 window.addEventListener("hashchange", rotear);
 
+// alternar tema 
+function temaAtual() {
+    
+    return document.documentElement.dataset.theme ||
+        (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    }
+    
+    function atualizarBotaoTema() {
+      $("#tema").textContent = temaAtual() === "dark" ? "☀ CLARO" : "☾ ESCURO";
+    }
+    
+    $("#tema").addEventListener("click", () => {
+      const novo = temaAtual() === "dark" ? "light" : "dark";
+      document.documentElement.dataset.theme = novo;
+      try { localStorage.setItem("arcade:tema", novo); } catch (e) {}
+      atualizarBotaoTema();
+      document.dispatchEvent(new Event("tema")); // avisa os jogos para redesenhar com as cores novas
+    });
+    
+    atualizarBotaoTema();
+
 // startando o js
 montarMenu();
 rotear();

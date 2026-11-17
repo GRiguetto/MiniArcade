@@ -157,5 +157,6 @@ function iniciarCobrinha(palco) {
     if (document.fonts) document.fonts.ready.then(desenhar);
   
     // função de limpeza: chamada ao sair do jogo
-    return () => { clearTimeout(timer); document.removeEventListener("keydown", aoTeclar); };
-  }
+    return () => { clearTimeout(timer); document.removeEventListener("keydown", aoTeclar);
+     document.removeEventListener("tema", desenhar); };
+    }

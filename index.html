@@ -7,8 +7,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
 <link rel="stylesheet" href="css/style.css">
+<script>
+    // aplica o tema salvo antes da página aparecer (evita “piscar” no tema errado)  
+    try { var t = localStorage.getItem("arcade:tema"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
 </head>
 <body>
+
+<div class="barra"><button class="btn" id="tema" aria-label="Alternar tema claro/escuro"></button></div>
 
 <h1>MINI ARCADE</h1>
 <p class="sub">ESCOLHA SEU JOGO</p>
