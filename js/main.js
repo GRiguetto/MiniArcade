@@ -1,44 +1,53 @@
+// main.js
 const JOGOS = [
-  {
-    id: "cobrinha",
-    nome: "COBRINHA",
-    icone: "🐍",
-    desc: "Coma, cresça, não bata.",
-    iniciar: iniciarCobrinha,
-  },
-  {
-    id: "breve1",
-    nome: "EM BREVE",
-    icone: "🔒",
-    desc: "Jogo #2",
-    bloqueado: true,
-  },
-  {
-    id: "breve2",
-    nome: "EM BREVE",
-    icone: "🔒",
-    desc: "Jogo #3",
-    bloqueado: true,
-  },
+    {
+      id: "cobrinha",
+      nome: "COBRINHA",
+      icone: sprite("cobra", 3), 
+      desc: "Coma, cresça, não bata.",
+      iniciar: iniciarCobrinha,
+    },
+    {
+      id: "breve1",
+      nome: "EM BREVE",
+      icone: sprite("cadeado", 3), 
+      desc: "Jogo #2",
+      bloqueado: true,
+    },
+    {
+      id: "breve2",
+      nome: "EM BREVE",
+      icone: sprite("cadeado", 3), 
+      desc: "Jogo #3",
+      bloqueado: true,
+    },
 ];
 
 const $ = (sel) => document.querySelector(sel);
-let limpar = null; // função de limpeza do jogo em execução
+let limpar = null;
 
 function montarMenu() {
-  const grade = $("#grade");
-  JOGOS.forEach((j) => {
-    const b = document.createElement("button");
-    b.className = "cartucho";
-    b.disabled = !!j.bloqueado;
-    b.innerHTML = `<span class="icone">${j.icone}</span><span class="nome">${j.nome}</span><span class="desc">${j.desc}</span>`;
-    if (!j.bloqueado)
-      b.addEventListener("click", () => {
-        location.hash = j.id;
-      });
-    grade.appendChild(b);
-  });
-}
+    const grade = $("#grade");
+    JOGOS.forEach((j) => {
+      const b = document.createElement("button");
+      b.className = "cartucho";
+      b.disabled = !!j.bloqueado;
+      
+      b.innerHTML = `
+        <div class="icone">${j.icone}</div>
+        <div class="info">
+          <span class="nome">${j.nome}</span>
+          <span class="desc">${j.desc}</span>
+        </div>
+      `;
+  
+      if (!j.bloqueado)
+        b.addEventListener("click", () => {
+          location.hash = j.id;
+        });
+      grade.appendChild(b);
+    });
+  }
 
 function rotear() {
   if (limpar) {
