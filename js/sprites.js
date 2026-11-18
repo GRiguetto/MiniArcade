@@ -21,6 +21,23 @@ const SPRITES = {
     "................",
     "................",
   ],
+
+  pong: [
+    "............",
+    ".##.........",
+    ".##.........",
+    ".##.........",
+    ".##..xx.....",
+    ".##..xx..##.",
+    ".##......##.",
+    ".##......##.",
+    ".........##.",
+    ".........##.",
+    ".........##.",
+    "............",
+    
+  ],
+
   sol: [
     ".....##.....",
     ".#...##...#.",
@@ -65,11 +82,10 @@ const SPRITES = {
   ],
 };
 
-// Cores de cada caractere (usam as variáveis do tema, então mudam sozinhas)
-const PALETA = { "#": "var(--accent)", "x": "var(--food)" };
 
-/* sprite("cobra", 4) devolve um <svg> pronto: cada pixel vira um <rect> 1x1.
-   px = tamanho de cada pixel na tela · cor = troca a cor do "#" (opcional) */
+const PALETA = { "#": "var(--accent)", x: "var(--food)" };
+
+
 function sprite(nome, px = 4, cor) {
   const m = SPRITES[nome];
   let rects = "";
@@ -80,5 +96,9 @@ function sprite(nome, px = 4, cor) {
       rects += `<rect x="${x}" y="${y}" width="1" height="1" style="fill:${fill}"/>`;
     });
   });
-  return `<svg class="sprite" viewBox="0 0 ${m[0].length} ${m.length}" width="${m[0].length * px}" height="${m.length * px}" shape-rendering="crispEdges" aria-hidden="true">${rects}</svg>`;
+  return `<svg class="sprite" viewBox="0 0 ${m[0].length} ${m.length}" width="${
+    m[0].length * px
+  }" height="${
+    m.length * px
+  }" shape-rendering="crispEdges" aria-hidden="true">${rects}</svg>`;
 }
