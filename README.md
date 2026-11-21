@@ -1,2 +1,4 @@
 # Mini Arcade
-pagina com alguns joguinhos 
+pagina com alguns joguinhos
+1 - cobrinha
+2 - pong
