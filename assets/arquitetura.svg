@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470" width="900" height="470" role="img" aria-label="Arquitetura do Mini Arcade">
+  <rect width="900" height="470" rx="14" fill="#0b0b1a"/>
+  
+  <rect x="350" y="22" width="200" height="58" rx="4" fill="#15153a" stroke="#e8e8ff" stroke-width="3" />
+  <text x="450" y="47" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="17" font-weight="bold" fill="#e8e8ff">index.html</text>
+  <text x="450" y="69" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="13" fill="#8888bb">carrega os scripts</text>
+  <line x1="450" y1="80" x2="450" y2="116" stroke="#8888bb" stroke-width="3"/><polygon points="443,115 457,115 450,124" fill="#8888bb"/>
+  
+  <rect x="265" y="124" width="370" height="76" rx="4" fill="#15153a" stroke="#ff2e97" stroke-width="3" />
+  <text x="450" y="158" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="17" font-weight="bold" fill="#e8e8ff">js/main.js</text>
+  <text x="450" y="180" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="13" fill="#8888bb">JOGOS[] · rotear() · tema</text>
+  <line x1="450" y1="200" x2="165" y2="248" stroke="#39ff14" stroke-width="3"/><polygon points="158,247 172,247 165,256" fill="#39ff14"/>
+  <line x1="450" y1="200" x2="450" y2="248" stroke="#39ff14" stroke-width="3"/><polygon points="443,247 457,247 450,256" fill="#39ff14"/>
+  <line x1="450" y1="200" x2="735" y2="248" stroke="#39ff14" stroke-width="3"/><polygon points="728,247 742,247 735,256" fill="#39ff14"/>
+  <text x="462" y="232" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="12" fill="#8888bb">iniciar(palco)</text>
+  
+  <rect x="50" y="256" width="230" height="70" rx="4" fill="#15153a" stroke="#39ff14" stroke-width="3" />
+  <text x="165" y="287" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="17" font-weight="bold" fill="#e8e8ff">cobrinha.js</text>
+  <text x="165" y="309" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="13" fill="#8888bb">iniciarCobrinha(palco)</text>
+  
+  <rect x="335" y="256" width="230" height="70" rx="4" fill="#15153a" stroke="#39ff14" stroke-width="3" />
+  <text x="450" y="287" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="17" font-weight="bold" fill="#e8e8ff">pong.js</text>
+  <text x="450" y="309" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="13" fill="#8888bb">iniciarPong(palco)</text>
+  
+  <rect x="620" y="256" width="230" height="70" rx="4" fill="#15153a" stroke="#39ff14" stroke-width="3" stroke-dasharray="9 6"/>
+  <text x="735" y="287" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="17" font-weight="bold" fill="#e8e8ff">seu-jogo.js</text>
+  <text x="735" y="309" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="13" fill="#8888bb">o próximo cartucho</text>
+  <line x1="165" y1="326" x2="165" y2="364" stroke="#8888bb" stroke-width="3"/><polygon points="158,363 172,363 165,372" fill="#8888bb"/>
+  <line x1="450" y1="326" x2="450" y2="364" stroke="#8888bb" stroke-width="3"/><polygon points="443,363 457,363 450,372" fill="#8888bb"/>
+  <line x1="735" y1="326" x2="735" y2="364" stroke="#8888bb" stroke-width="3"/><polygon points="728,363 742,363 735,372" fill="#8888bb"/>
+  <text x="176" y="354" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="12" fill="#8888bb">usam</text>
+  <rect x="50" y="372" width="800" height="76" rx="4" fill="none" stroke="#8888bb" stroke-width="2" stroke-dasharray="3 5"/>
+  <text x="62" y="390" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="12" fill="#8888bb">PEÇAS COMPARTILHADAS</text>
+  
+  <rect x="70" y="398" width="230" height="40" rx="4" fill="#15153a" stroke="#8888bb" stroke-width="3" />
+  <text x="185" y="423" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="17" font-weight="bold" fill="#e8e8ff">sound.js · bip()</text>
+  
+  
+  <rect x="335" y="398" width="230" height="40" rx="4" fill="#15153a" stroke="#8888bb" stroke-width="3" />
+  <text x="450" y="423" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="17" font-weight="bold" fill="#e8e8ff">sprites.js · sprite()</text>
+  
+  
+  <rect x="600" y="398" width="230" height="40" rx="4" fill="#15153a" stroke="#8888bb" stroke-width="3" />
+  <text x="715" y="423" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="17" font-weight="bold" fill="#e8e8ff">style.css · temas</text>
+  
+</svg>
