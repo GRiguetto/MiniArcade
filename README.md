@@ -15,6 +15,7 @@
 |:-:|---|---|---|---|
 | <img src="assets/cobrinha.svg" width="72" alt="Cobrinha"> | **Cobrinha** | Setas ou WASD · deslizar o dedo · D-pad | [`cobrinha.js`](js/games/cobrinha.js) | Grade, loop com `setTimeout`, fila de comandos, recorde no `localStorage` |
 | <img src="assets/pong.svg" width="72" alt="Pong"> | **Pong** | Setas ou W/S · arrastar o dedo · ▲ ▼ | [`pong.js`](js/games/pong.js) | Loop com `requestAnimationFrame`, tempo delta, colisão, IA simples |
+| <img src="assets/velha.svg" width="72" alt="Jogo da Velha"> | **Jogo da Velha** | Clique ou toque nas casas · 3 níveis · alterna quem começa | [`velha.js`](js/games/velha.js) | Recursão, minimax com poda alfa-beta, árvore de decisão, IA imbatível × IA que erra de propósito |
 | <img src="assets/em-breve.svg" width="72" alt="Em breve"> | _Próximo jogo_ | — | — | — |
 
 <!-- NOVO JOGO: copie uma linha da tabela acima, troque o ícone (assets/), o nome, os controles, o arquivo e o aprendizado. -->
@@ -47,7 +48,8 @@ mini-arcade/
     ├── sprites.js        # SPRITES{} em texto + sprite(): vira SVG pixel art
     └── games/
         ├── cobrinha.js   # iniciarCobrinha(palco)
-        └── pong.js       # iniciarPong(palco)
+        ├── pong.js       # iniciarPong(palco)
+        └── velha.js      # iniciarVelha(palco) + IA minimax
 ```
 
 ## Como é construído
@@ -148,7 +150,7 @@ A ordem é livre; o que eu estiver com vontade de aprender no momento.
 
 - [x] Cobrinha
 - [x] Pong
-- [ ] Jogo da Velha (com IA minimax)
+- [x] Jogo da Velha (com IA minimax)
 - [ ] Memória (pares)
 - [ ] Breakout
 - [ ] Campo Minado
@@ -169,12 +171,17 @@ Este projeto é de estudo pessoal, então o objetivo não é só terminar os jog
 - Máquina de estados simples: `pronto → jogando → pausado → fim`
 - Colisão com retângulos, ângulo de rebote e aumento gradual de dificuldade
 - Uma IA "burra de propósito" (atraso e erro de mira) para o jogo ser vencível
+- Minimax: testar todas as jogadas até o fim, dar uma nota a cada final (positiva para a IA, negativa para o humano) e escolher o melhor caminho assumindo que o adversário joga bem
+- Poda alfa-beta: ignorar ramos que não mudam o resultado e ver, pelo contador na tela, quantas posições isso economiza
+- Níveis de dificuldade misturando jogadas aleatórias com minimax
 
 **JavaScript**
 - Funções que guardam estado (closures) e devolvem uma função de limpeza
 - Por que remover `addEventListener` ao sair de uma tela
 - Organizar um projeto sem framework: separar menu, jogos e utilidades
 - Guardar dados no navegador com segurança (`try/catch` em volta do `localStorage`)
+- Recursão com "testa e desfaz" (backtracking) em cima do tabuleiro
+- Testar a IA de forma exaustiva: simular todas as partidas possíveis para provar que ela nunca perde
 
 **Web e interface**
 - Canvas 2D e a diferença entre o tamanho interno e o tamanho no CSS
@@ -182,9 +189,9 @@ Este projeto é de estudo pessoal, então o objetivo não é só terminar os jog
 - Temas com variáveis CSS e `prefers-color-scheme`
 - Gerar SVG por código (pixel art a partir de texto)
 - Som sem arquivos de áudio, só com Web Audio
+- Delegação de eventos: um único listener no tabuleiro e `closest()` para descobrir a casa clicada
 
 **Para aprender nos próximos jogos**
-- Minimax e árvores de decisão (Jogo da Velha)
 - _Flood fill_ (Campo Minado)
 - Rotação de matrizes e detecção de linhas (Tetris)
 - Animação por quadros de sprite (Space Invaders)
@@ -195,6 +202,8 @@ Este projeto é de estudo pessoal, então o objetivo não é só terminar os jog
 - Salvar o recorde também no Pong (contra a CPU, por exemplo, em vitórias seguidas)
 - Som liga/desliga no menu
 - Modo para dois jogadores no Pong
+- Salvar o placar do Jogo da Velha no `localStorage`
+- Jogo da Velha 4×4, onde o minimax precisa de limite de profundidade
 - Publicar com GitHub Pages
 
 ---
