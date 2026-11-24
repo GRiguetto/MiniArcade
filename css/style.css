@@ -269,8 +269,80 @@ footer {
 }
 
 .sprite {
-    display: inline-block;
-    image-rendering: pixelated;
-    image-rendering: crisp-edges;
-    margin-bottom: 6px;
+  display: inline-block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  margin-bottom: 6px;
+}
+
+/* Jogo da velha */
+.opcoes {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.btn.ativo {
+  background: var(--accent);
+  color: var(--screen);
+}
+
+.velha {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  background: var(--ink);
+}
+
+.cel {
+  aspect-ratio: 1;
+  background: var(--screen);
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.cel .sprite {
+  width: 60%;
+  height: auto;
+}
+
+.cel:not(:disabled):hover {
+  outline: 4px solid var(--accent2);
+  outline-offset: -4px;
+}
+
+.cel:disabled {
+  cursor: default;
+}
+
+.cel.vit {
+  background: var(--panel);
+}
+
+#msg {
+  color: var(--ink);
+  font-size: 11px;
+  margin-top: 14px;
+}
+
+footer {
+  margin-top: auto;
+  padding-top: 32px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+footer {
+  margin-top: auto;
+  padding-top: 32px;
+  color: var(--muted);
+  font-size: 8px;
+  text-align: center;
 }
