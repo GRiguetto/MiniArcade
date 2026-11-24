@@ -15,11 +15,11 @@ const JOGOS = [
     iniciar: iniciarPong,
   },
   {
-    id: "breve2",
-    nome: "EM BREVE",
-    icone: sprite("cadeado", 3),
-    desc: "Jogo #3",
-    bloqueado: true,
+    id: "velha",
+    nome: "VELHA",
+    icone: sprite("velha", 6),
+    desc: "vença da IA minimax",
+    iniciar: iniciarVelha,
   },
 ];
 
