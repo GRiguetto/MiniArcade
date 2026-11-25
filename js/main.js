@@ -28,6 +28,13 @@ const JOGOS = [
     desc: "Ache os pares de cartas.",
     iniciar: iniciarMemoria,
   },
+  {
+    id: "breakout",
+    nome: "BREAKOUT",
+    icone: sprite("breakout", 6),
+    desc: "Quebre os tijolos. Pegue power-ups.",
+    iniciar: iniciarBreakout,
+  },
 ];
 
 const $ = (sel) => document.querySelector(sel);
