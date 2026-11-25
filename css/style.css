@@ -346,3 +346,81 @@ footer {
   font-size: 8px;
   text-align: center;
 }
+
+
+/* ===== 5c. JOGO DA MEMÓRIA ===== */
+.mesa {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.carta {
+  width: calc(25% - 8px);
+  aspect-ratio: 5 / 7;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  perspective: 600px;
+}
+.miolo {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.3s steps(5);
+}
+.carta.virada .miolo {
+  transform: rotateY(180deg);
+}
+.verso,
+.frente {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid var(--ink);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.verso {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--panel) 0 5px,
+    var(--accent2) 5px 10px
+  );
+}
+.frente {
+  background: var(--bg);
+  transform: rotateY(180deg);
+  line-height: 0;
+}
+.frente .sprite {
+  height: 82%;
+  width: auto;
+}
+.carta.par .frente {
+  background: var(--panel);
+}
+.carta:not(.virada):hover .verso,
+.carta:not(.virada):focus-visible .verso {
+  outline: 4px solid var(--accent);
+  outline-offset: 2px;
+}
+.carta:focus-visible {
+  outline: none;
+}
+#m-msg {
+  color: var(--ink);
+  font-size: 11px;
+  margin: 14px 0;
+  min-height: 1.6em;
+}
+@media (prefers-reduced-motion: reduce) {
+  .miolo {
+    transition: none;
+  }
+}

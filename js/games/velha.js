@@ -1,9 +1,3 @@
-/* ===== JOGO DA VELHA com IA MINIMAX =====
-   Você é o X, a IA é o O. O tabuleiro é uma lista de 9 posições:
-        0 | 1 | 2
-        3 | 4 | 5      cada posição é null (vazia), "X" ou "O"
-        6 | 7 | 8                                                   */
-
 const LINHAS = [
   [0, 1, 2],
   [3, 4, 5],
@@ -15,7 +9,6 @@ const LINHAS = [
   [2, 4, 6],
 ];
 
-// Devolve { quem: "X" | "O" | "empate", linha: [...] } se acabou, ou null se segue o jogo
 function vencedor(t) {
   for (const [a, b, c] of LINHAS) {
     if (t[a] && t[a] === t[b] && t[a] === t[c])
@@ -24,14 +17,7 @@ function vencedor(t) {
   return t.includes(null) ? null : { quem: "empate", linha: [] };
 }
 
-/* ----- MINIMAX com poda alfa-beta -----
-           A IA (O) quer MAXIMIZAR a nota; você (X) quer MINIMIZAR.
-           Nota:  +10 - prof  → IA ganha (quanto mais rápido, melhor)
-                  prof - 10   → você ganha (quanto mais tarde, melhor para a IA)
-                  0           → empate
-           A função se chama recursivamente testando TODAS as jogadas até o fim do jogo.
-           A poda alfa-beta ignora ramos que não podem mudar o resultado (mais rápido). */
-let nosAnalisados = 0; // só para mostrar na tela quanto a IA “pensou”
+
 
 function minimax(t, vez, prof, alfa, beta) {
   nosAnalisados++;

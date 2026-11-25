@@ -21,6 +21,13 @@ const JOGOS = [
     desc: "vença da IA minimax",
     iniciar: iniciarVelha,
   },
+  {
+    id: "memoria",
+    nome: "MEMORIA",
+    icone: sprite("memoria", 6),
+    desc: "Ache os pares de cartas.",
+    iniciar: iniciarMemoria,
+  },
 ];
 
 const $ = (sel) => document.querySelector(sel);
