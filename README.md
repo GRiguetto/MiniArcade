@@ -16,7 +16,23 @@
 | <img src="assets/cobrinha.svg" width="72" alt="Cobrinha"> | **Cobrinha** | Setas ou WASD · deslizar o dedo · D-pad | [`cobrinha.js`](js/games/cobrinha.js) | Grade, loop com `setTimeout`, fila de comandos, recorde no `localStorage` |
 | <img src="assets/pong.svg" width="72" alt="Pong"> | **Pong** | Setas ou W/S · arrastar o dedo · ▲ ▼ | [`pong.js`](js/games/pong.js) | Loop com `requestAnimationFrame`, tempo delta, colisão, IA simples |
 | <img src="assets/velha.svg" width="72" alt="Jogo da Velha"> | **Jogo da Velha** | Clique ou toque nas casas · 3 níveis · alterna quem começa | [`velha.js`](js/games/velha.js) | Recursão, minimax com poda alfa-beta, árvore de decisão, IA imbatível × IA que erra de propósito |
+| <img src="assets/memoria.svg" width="72" alt="Memória"> | **Memória** | Clique ou toque nas cartas · 7 pares | [`memoria.js`](js/games/memoria.js) | Virar carta em 3D com CSS, sprites de cartas, comparar pares, estado do tabuleiro |
+| <img src="assets/breakout.svg" width="72" alt="Breakout"> | **Breakout** | Setas ou A/D · arrastar o dedo · ◀ ● ▶ · Espaço lança e pausa | [`breakout.js`](js/games/breakout.js) | Colisão círculo × retângulo, subpassos contra o "efeito túnel", fases geradas por código, power-ups com temporizador, várias bolas |
 | <img src="assets/em-breve.svg" width="72" alt="Em breve"> | _Próximo jogo_ | — | — | — |
+
+### Power-ups do Breakout
+
+Cada tijolo destruído tem 22% de chance de soltar uma cápsula. Pegue com a raquete (+50 pontos).
+
+| Letra | Nome | Efeito |
+|:-:|---|---|
+| **L** | Larga | Raquete maior por 10 s |
+| **M** | Multibola | A bola vira três (até 6 em jogo) |
+| **D** | Devagar | Bola 35% mais lenta por 8 s |
+| **C** | Cola | A bola gruda na raquete por 12 s; lance de novo com Espaço ou ● |
+| **V** | Vida | +1 vida (máximo 5), o mais raro |
+
+Tijolos com moldura aguentam 2 batidas. Limpar a fase vale +100 pontos, e a próxima vem com mais linhas e bola mais rápida.
 
 <!-- NOVO JOGO: copie uma linha da tabela acima, troque o ícone (assets/), o nome, os controles, o arquivo e o aprendizado. -->
 
@@ -49,7 +65,9 @@ mini-arcade/
     └── games/
         ├── cobrinha.js   # iniciarCobrinha(palco)
         ├── pong.js       # iniciarPong(palco)
-        └── velha.js      # iniciarVelha(palco) + IA minimax
+        ├── velha.js      # iniciarVelha(palco) + IA minimax
+        ├── memoria.js    # iniciarMemoria(palco)
+        └── breakout.js   # iniciarBreakout(palco) + power-ups
 ```
 
 ## Como é construído
@@ -151,8 +169,8 @@ A ordem é livre; o que eu estiver com vontade de aprender no momento.
 - [x] Cobrinha
 - [x] Pong
 - [x] Jogo da Velha (com IA minimax)
-- [ ] Memória (pares)
-- [ ] Breakout
+- [x] Memória (7 pares)
+- [x] Breakout (com power-ups)
 - [ ] Campo Minado
 - [ ] 2048
 - [ ] Flappy
@@ -174,11 +192,17 @@ Este projeto é de estudo pessoal, então o objetivo não é só terminar os jog
 - Minimax: testar todas as jogadas até o fim, dar uma nota a cada final (positiva para a IA, negativa para o humano) e escolher o melhor caminho assumindo que o adversário joga bem
 - Poda alfa-beta: ignorar ramos que não mudam o resultado e ver, pelo contador na tela, quantas posições isso economiza
 - Níveis de dificuldade misturando jogadas aleatórias com minimax
+- Colisão círculo × retângulo: achar o ponto do tijolo mais perto da bola e, pela menor sobreposição, decidir se o rebote é horizontal ou vertical
+- Subpassos: dividir o movimento da bola em passos de até 4 px para ela não atravessar um tijolo quando está rápida (o "efeito túnel")
+- Ângulo de rebote pela posição em que a bola toca a raquete, com aceleração gradual
+- Power-ups: objetos que caem, efeitos com temporizador em segundos e várias bolas ao mesmo tempo num array
+- Gerar fases por código: linhas a mais, tijolos duros e buracos na parede conforme o número da fase
 
 **JavaScript**
 - Funções que guardam estado (closures) e devolvem uma função de limpeza
 - Por que remover `addEventListener` ao sair de uma tela
 - Organizar um projeto sem framework: separar menu, jogos e utilidades
+- Remover itens de uma lista com `filter()` em vez de mexer no array enquanto ele é percorrido
 - Guardar dados no navegador com segurança (`try/catch` em volta do `localStorage`)
 - Recursão com "testa e desfaz" (backtracking) em cima do tabuleiro
 - Testar a IA de forma exaustiva: simular todas as partidas possíveis para provar que ela nunca perde
@@ -188,6 +212,9 @@ Este projeto é de estudo pessoal, então o objetivo não é só terminar os jog
 - Pointer Events e `touch-action: none` para jogar no celular
 - Temas com variáveis CSS e `prefers-color-scheme`
 - Gerar SVG por código (pixel art a partir de texto)
+- Virar carta em 3D só com CSS: `perspective`, `transform-style: preserve-3d` e `backface-visibility: hidden` (frente e verso na mesma carta)
+- Animação em passos com `steps()` para combinar com o visual retrô, e `prefers-reduced-motion` para quem não quer movimento
+- Reaproveitar o gerador de sprites para as cartas (K, Q, J, Coringa, A, 2 e 3)
 - Som sem arquivos de áudio, só com Web Audio
 - Delegação de eventos: um único listener no tabuleiro e `closest()` para descobrir a casa clicada
 
@@ -204,6 +231,8 @@ Este projeto é de estudo pessoal, então o objetivo não é só terminar os jog
 - Modo para dois jogadores no Pong
 - Salvar o placar do Jogo da Velha no `localStorage`
 - Jogo da Velha 4×4, onde o minimax precisa de limite de profundidade
+- Breakout: fases desenhadas em texto, como os sprites (um caractere por tijolo)
+- Breakout: power-up de laser e tijolos indestrutíveis
 - Publicar com GitHub Pages
 
 ---
