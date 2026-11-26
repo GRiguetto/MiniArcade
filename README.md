@@ -66,7 +66,7 @@ mini-arcade/
         ├── cobrinha.js   # iniciarCobrinha(palco)
         ├── pong.js       # iniciarPong(palco)
         ├── velha.js      # iniciarVelha(palco) + IA minimax
-        ├── memoria.js    # iniciarMemoria(palco)
+        ├── memoria.js    # iniciarMemoria(palco) + Sprites
         └── breakout.js   # iniciarBreakout(palco) + power-ups
 ```
 
