@@ -235,6 +235,8 @@ Este projeto é de estudo pessoal, então o objetivo não é só terminar os jog
 - Breakout: power-up de laser e tijolos indestrutíveis
 - Publicar com GitHub Pages
 
+  
+
 ---
 
 <p align="center">
